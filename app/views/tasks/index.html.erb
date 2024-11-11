@@ -1,0 +1,16 @@
+<div class="container">
+<h2>To-Dos</h2>
+<ul>
+<% @tasks.each do |task| %>
+ <li> <%= link_to task.title, task_path(task) %>
+ </li>
+<%= check_box_tag "task_#{task.id}", task.id, task.completed? %>
+ <%# <p> <%= task.completed? ? "completed" : "not completed" %>
+<% end %>
+
+</ul>
+</div>
+
+<div>
+<%= link_to "create task", create_path, class: "button" %>
+</div>
